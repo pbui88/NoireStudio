@@ -1,26 +1,88 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-cream: #F5E6D3;
+  --color-cream-light: #FAF6F1;
+  --color-cream-dark: #EDD8C0;
+  --color-brown: #8B5230;
+  --color-brown-dark: #6B3D20;
+  --color-brown-light: #C4956A;
+  --color-brown-muted: #D4B896;
+  --color-text: #3D2314;
+  --color-text-muted: #6B4A35;
+  --color-border: #E2CBAF;
+  --font-serif: var(--font-cormorant);
+  --font-sans: var(--font-montserrat);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --background: #FAF6F1;
+  --foreground: #3D2314;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-montserrat), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Cormorant display utility */
+.font-display {
+  font-family: var(--font-cormorant), Georgia, serif;
+}
+
+/* Wide tracking for label text */
+.tracking-widest-xl {
+  letter-spacing: 0.3em;
+}
+
+/* Thin divider ornament */
+.ornament {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #C4956A;
+}
+.ornament::before,
+.ornament::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: currentColor;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #FAF6F1; }
+::-webkit-scrollbar-thumb { background: #C4956A; border-radius: 3px; }
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Hero entrance */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: none; }
+}
+.hero-enter {
+  animation: fadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
