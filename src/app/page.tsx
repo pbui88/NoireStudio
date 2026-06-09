@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
@@ -92,26 +93,18 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Right: image placeholder */}
+          {/* Right: hero image */}
           <div
-            className="hero-enter relative h-[440px] lg:h-[580px]"
+            className="hero-enter relative h-[440px] lg:h-[580px] overflow-hidden"
             style={{ animationDelay: "0.35s" }}
           >
-            <div className="absolute inset-0 bg-[#EDD8C0]" />
-            <div className="absolute inset-8 border border-[#C4956A]/25" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center pointer-events-none select-none">
-              <span className="font-display text-5xl font-light italic text-[#C4956A]/30 tracking-[0.1em]">
-                Noiré
-              </span>
-            </div>
-            <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between">
-              <span className="text-[9px] tracking-[0.3em] text-[#6B4A35]/70 font-sans uppercase">
-                Noiré Studio
-              </span>
-              <span className="text-[9px] tracking-[0.3em] text-[#6B4A35]/70 font-sans uppercase">
-                Aurora, CO
-              </span>
-            </div>
+            <Image
+              src="/hero-bg.jpg"
+              alt="Noiré Studio — luxury nail art"
+              fill
+              className="object-cover object-center"
+              priority
+            />
           </div>
         </div>
       </section>
